@@ -1,0 +1,19 @@
+name: deploy_to_prod_checks
+
+on: [push]
+
+jobs:
+  deploy_app:
+    runs-on: ubuntu-latest
+    steps:
+      - name: check out prod
+        run: git clone https://hhc97:${{ secrets.PROD_TOKEN }}@github.com/hhc97/commits_recursive.git
+      - name: push to prod
+        run: |
+          git config --global user.email "hc.hu@utoronto.ca"
+          git config --global user.name "Haocheng Hu"
+          cd commits_recursive
+          echo `date` > test
+          git add --all
+          git commit -m "`date`"
+          git push
