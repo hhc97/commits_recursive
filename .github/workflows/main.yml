@@ -13,5 +13,5 @@ jobs:
           git config --global user.email "hc.hu@utoronto.ca"
           git config --global user.name "Haocheng Hu"
           cd commits_recursive
-          for i in {1..1000}; do sh commit.sh; done
+          for i in {1..10000}; do sh commit.sh; done
           git push
